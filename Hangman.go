@@ -32,7 +32,7 @@ func main() {
 			attemps--
 			println("\nNot present in the word,", attemps, "attempts remaining\n")
 		}
-		//test j'espere que c bon
+		//test j'espere que c bon  cette fois si j'en peu plu
 		indice = -1
 	}
 }
