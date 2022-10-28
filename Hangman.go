@@ -11,6 +11,7 @@ func main() {
 	attemps := 10
 	var indice int
 	println("Good Luck, you have ", attemps, " attempts.")
+
 	for attemps > 0 {
 		for i := 0; i < len(mot); i++ {
 			mot_cache = append(mot_cache, "_")
@@ -27,12 +28,14 @@ func main() {
 				break
 			}
 		}
+
 		if indice != -1 {
 			mot_cache[indice] = choix
 		} else {
 			attemps--
 			println("\nNot present in the word,", attemps, "attempts remaining\n")
 		}
+		//test
 		indice = -1
 	}
 }
