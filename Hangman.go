@@ -20,7 +20,6 @@ func main() {
 		}
 		print("\n" + "\n" + "Choose: ")
 		fmt.Scanln(&choix)
-
 		for i := 0; i < len(mot); i++ {
 			if choix[0] == mot[i] {
 				indice = i
@@ -33,6 +32,7 @@ func main() {
 			attemps--
 			println("\nNot present in the word,", attemps, "attempts remaining\n")
 		}
+		//test j'espere que c bon
 		indice = -1
 	}
 }
