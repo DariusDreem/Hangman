@@ -3,9 +3,12 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"math/rand"
+	"time"
 )
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
 	content, _ := ioutil.ReadFile("words.txt")
 	chaine := ""
 	var liste []string
@@ -20,10 +23,12 @@ func main() {
 	fmt.Println(liste)
 
 	var choix string
-	mot := "teste"
+	nbr1 := rand.Intn(len(liste))
+	mot := liste[nbr1]
 	var mot_cache []string
 	attemps := 10
 	var indice int
+	println(mot)
 	println("Good Luck, you have ", attemps, " attempts.")
 	for attemps > 0 {
 		for i := 0; i < len(mot); i++ {
