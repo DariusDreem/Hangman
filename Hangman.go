@@ -27,7 +27,6 @@ func main() {
 	println(nbrlettre)
 	var mot_cache []string
 	attemps := 10
-	var indice int
 	println(mot)
 	println("Good Luck, you have ", attemps, " attempts.")
 	for i := 0; i < len(mot); i++ {
@@ -36,28 +35,28 @@ func main() {
 	for x := 0; x < nbrlettre; x++ {
 		ind := rand.Intn(len(mot))
 		mot_cache[ind] = string(mot[ind])
-
-		println(ind)
 	}
+
 	for attemps > 0 {
 		for i := 0; i < len(mot); i++ {
 			print(mot_cache[i] + " ")
 		}
 		print("\n" + "\n" + "Choose: ")
 		fmt.Scanln(&choix)
+		var listeind []int
 		for i := 0; i < len(mot); i++ {
 			if choix[0] == mot[i] {
-				indice = i
-				break
+				listeind = append(listeind, i)
 			}
 		}
-		if indice != -1 {
-			mot_cache[indice] = choix
+		if len(listeind) > 0 {
+			for k := 0; k < len(listeind); k++ {
+				mot_cache[listeind[k]] = choix
+			}
 		} else {
 			attemps--
 			println("\nNot present in the word,", attemps, "attempts remaining\n")
 		}
-		indice = -1
 	}
 	println("t'es nul c'était :", mot)
 }
