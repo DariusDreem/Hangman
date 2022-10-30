@@ -2,9 +2,13 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 )
 
 func main() {
+	content, _ := ioutil.ReadFile("words.txt")
+	fmt.Println(string(content))
+
 	var choix string
 	mot := "teste"
 	var mot_cache []string

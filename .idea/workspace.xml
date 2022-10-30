@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5f6a951-eedf-423c-8bea-4276d3da5e6e" name="Changes" comment="">
+    <list default="true" id="e5f6a951-eedf-423c-8bea-4276d3da5e6e" name="Changes" comment="add word.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hangman.go" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman.go" afterDir="false" />
     </list>
@@ -87,6 +87,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add End sentence" />
+    <MESSAGE value="add word.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="add word.txt" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
