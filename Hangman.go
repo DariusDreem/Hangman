@@ -4,11 +4,12 @@ import (
 	"fmt"
 	"io/ioutil"
 	"math/rand"
+	"os"
 	"time"
 )
 
 func main() {
-	jo, _ := ioutil.ReadFile("hangman.txt")
+	jo, _ := ioutil.ReadFile(os.Args[1])
 	position := 0
 	rand.Seed(time.Now().UnixNano())
 	content, _ := ioutil.ReadFile("words.txt")
