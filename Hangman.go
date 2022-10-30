@@ -7,7 +7,17 @@ import (
 
 func main() {
 	content, _ := ioutil.ReadFile("words.txt")
-	fmt.Println(string(content))
+	chaine := ""
+	var liste []string
+	for i := 0; i < len(content); i++ {
+		if content[i] == 10 || content[i] == 45 {
+			liste = append(liste, chaine)
+			chaine = ""
+		} else {
+			chaine += string(content[i])
+		}
+	}
+	fmt.Println(liste)
 
 	var choix string
 	mot := "teste"
