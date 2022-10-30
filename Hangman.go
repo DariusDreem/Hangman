@@ -33,7 +33,10 @@ func main() {
 	for i := 0; i < len(mot); i++ {
 		mot_cache = append(mot_cache, "_")
 	}
-
+	for x := 0; x < nbrlettre; x++ {
+		indice := rand.Intn(len(mot))
+		println(indice)
+	}
 	for attemps > 0 {
 		for i := 0; i < len(mot); i++ {
 			print(mot_cache[i] + " ")
