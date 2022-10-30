@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a948ba46-652e-4d25-ad68-d38954ef5e54" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e5f6a951-eedf-423c-8bea-4276d3da5e6e" name="Changes" comment="Implementation of os arg">
       <change beforePath="$PROJECT_DIR$/Hangman.go" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,14 +12,26 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
   <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.19.1" />
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="devleo" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2GX8YGznWL1C0haevXkVHmZLQXW" />
+  <component name="ProjectId" id="2Glbd4qJgKrk8NdumUMZN1L2BKq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,6 +39,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
@@ -38,8 +50,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/faure/Desktop/The gallows fin - Copie&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/faure/Desktop/The gallows fin - Copie&quot;
   }
 }</component>
   <component name="RunManager" selected="Go Build.go build Hangman.go">
@@ -47,24 +58,22 @@
       <module name="hangman-classic" />
       <working_directory value="$PROJECT_DIR$/.." />
       <kind value="FILE" />
-      <package value="ex" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/Hangman.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build ex" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build test.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="hangman-classic" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="ex" />
+      <working_directory value="$PROJECT_DIR$/.." />
+      <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/Hangman.go" />
+      <filePath value="$PROJECT_DIR$/test.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build Hangman.go" />
-        <item itemvalue="Go Build.go build ex" />
+        <item itemvalue="Go Build.go build test.go" />
       </list>
     </recent_temporary>
   </component>
@@ -77,11 +86,40 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/majlf" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add End sentence" />
+    <MESSAGE value="add word.txt" />
+    <MESSAGE value="begin of word random" />
+    <MESSAGE value="list words randoms" />
+    <MESSAGE value="END of word random" />
+    <MESSAGE value="reveal random letters" />
+    <MESSAGE value="reveal random letters suit" />
+    <MESSAGE value="reveal random letters end" />
+    <MESSAGE value="fix problem letter choose" />
+    <MESSAGE value="add josee" />
+    <MESSAGE value="add jose" />
+    <MESSAGE value="step by step for jose" />
+    <MESSAGE value="repositioning of jose" />
+    <MESSAGE value="Implementation of os arg" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of os arg" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
