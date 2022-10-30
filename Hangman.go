@@ -20,11 +20,11 @@ func main() {
 			chaine += string(content[i])
 		}
 	}
-	fmt.Println(liste)
-
 	var choix string
 	nbr1 := rand.Intn(len(liste))
 	mot := liste[nbr1]
+	nbrlettre := len(mot)/2 - 1
+	println(nbrlettre)
 	var mot_cache []string
 	attemps := 10
 	var indice int
