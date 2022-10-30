@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	jose, _ := ioutil.ReadFile("hangman.txt")
-	fmt.Println(jose)
+	jo, _ := ioutil.ReadFile("hangman.txt")
+	fmt.Println(string(jo), "e")
 	rand.Seed(time.Now().UnixNano())
 	content, _ := ioutil.ReadFile("words.txt")
 	chaine := ""
