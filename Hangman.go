@@ -30,10 +30,11 @@ func main() {
 	var indice int
 	println(mot)
 	println("Good Luck, you have ", attemps, " attempts.")
+	for i := 0; i < len(mot); i++ {
+		mot_cache = append(mot_cache, "_")
+	}
+
 	for attemps > 0 {
-		for i := 0; i < len(mot); i++ {
-			mot_cache = append(mot_cache, "_")
-		}
 		for i := 0; i < len(mot); i++ {
 			print(mot_cache[i] + " ")
 		}

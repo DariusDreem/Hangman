@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5f6a951-eedf-423c-8bea-4276d3da5e6e" name="Changes" comment="END of word random">
+    <list default="true" id="e5f6a951-eedf-423c-8bea-4276d3da5e6e" name="Changes" comment="reveal random letters">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hangman.go" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman.go" afterDir="false" />
     </list>
@@ -94,7 +94,8 @@
     <MESSAGE value="begin of word random" />
     <MESSAGE value="list words randoms" />
     <MESSAGE value="END of word random" />
-    <option name="LAST_COMMIT_MESSAGE" value="END of word random" />
+    <MESSAGE value="reveal random letters" />
+    <option name="LAST_COMMIT_MESSAGE" value="reveal random letters" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
