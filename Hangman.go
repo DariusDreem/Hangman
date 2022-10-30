@@ -10,7 +10,7 @@ func main() {
 	chaine := ""
 	var liste []string
 	for i := 0; i < len(content); i++ {
-		if content[i] == 10 || content[i] == 45 {
+		if content[i] == 10 {
 			liste = append(liste, chaine)
 			chaine = ""
 		} else {
