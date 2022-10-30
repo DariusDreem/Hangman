@@ -9,7 +9,7 @@ import (
 
 func main() {
 	jo, _ := ioutil.ReadFile("hangman.txt")
-	fmt.Println(string(jo), "e")
+	position := 0
 	rand.Seed(time.Now().UnixNano())
 	content, _ := ioutil.ReadFile("words.txt")
 	chaine := ""
@@ -57,7 +57,10 @@ func main() {
 			}
 		} else {
 			attemps--
+			fmt.Println(string(jo[position : position+70]))
+			position += 71
 			println("\nNot present in the word,", attemps, "attempts remaining\n")
+
 		}
 	}
 	println("t'es nul c'était :", mot)
