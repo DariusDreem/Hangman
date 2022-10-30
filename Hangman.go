@@ -9,10 +9,10 @@ import (
 )
 
 func main() {
-	jo, _ := ioutil.ReadFile(os.Args[1])
+	jo, _ := ioutil.ReadFile("hangman.txt")
 	position := 0
 	rand.Seed(time.Now().UnixNano())
-	content, _ := ioutil.ReadFile("words.txt")
+	content, _ := ioutil.ReadFile(os.Args[1])
 	chaine := ""
 	var liste []string
 	for i := 0; i < len(content); i++ {
