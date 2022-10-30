@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5f6a951-eedf-423c-8bea-4276d3da5e6e" name="Changes" comment="add jose">
+    <list default="true" id="e5f6a951-eedf-423c-8bea-4276d3da5e6e" name="Changes" comment="step by step for jose">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hangman.go" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman.go" afterDir="false" />
     </list>
@@ -117,7 +117,8 @@
     <MESSAGE value="fix problem letter choose" />
     <MESSAGE value="add josee" />
     <MESSAGE value="add jose" />
-    <option name="LAST_COMMIT_MESSAGE" value="add jose" />
+    <MESSAGE value="step by step for jose" />
+    <option name="LAST_COMMIT_MESSAGE" value="step by step for jose" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

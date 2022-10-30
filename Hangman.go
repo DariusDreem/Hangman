@@ -57,10 +57,9 @@ func main() {
 			}
 		} else {
 			attemps--
+			println("\nNot present in the word,", attemps, "attempts remaining\n")
 			fmt.Println(string(jo[position : position+70]))
 			position += 71
-			println("\nNot present in the word,", attemps, "attempts remaining\n")
-
 		}
 	}
 	println("t'es nul c'était :", mot)
