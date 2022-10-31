@@ -23,3 +23,7 @@ func pendu(nbr, position int) int {
 	fmt.Print(string(jose[position-70 : position]))
 	return position
 }
+
+func verification(word, choice string) []int {
+	return choice
+}
