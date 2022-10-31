@@ -1,38 +1,64 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"io/ioutil"
+	"math/rand"
+	"os"
+	"time"
 )
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
+	jo, _ := ioutil.ReadFile("hangman.txt")
+	position := 0
 	var choix string
-	mot := "teste"
+	mot := motrandom(os.Args[1])
+	nbrlettre := len(mot)/2 - 1
 	var mot_cache []string
 	attemps := 10
-	var indice int
+	println(mot)
+	println(len(mot))
 	println("Good Luck, you have ", attemps, " attempts.")
+	for i := 0; i < len(mot); i++ {
+		mot_cache = append(mot_cache, "_")
+	}
+	for x := 0; x < nbrlettre; x++ {
+		ind := rand.Intn(len(mot))
+		mot_cache[ind] = string(mot[ind])
+	}
 	for attemps > 0 {
-		for i := 0; i < len(mot); i++ {
-			mot_cache = append(mot_cache, "_")
-		}
 		for i := 0; i < len(mot); i++ {
 			print(mot_cache[i] + " ")
 		}
 		print("\n" + "\n" + "Choose: ")
 		fmt.Scanln(&choix)
+		var listeind []int
 		for i := 0; i < len(mot); i++ {
 			if choix[0] == mot[i] {
-				indice = i
-				break
+				listeind = append(listeind, i)
 			}
 		}
-		if indice != -1 {
-			mot_cache[indice] = choix
+		if len(listeind) > 0 {
+			for k := 0; k < len(listeind); k++ {
+				mot_cache[listeind[k]] = choix
+			}
 		} else {
 			attemps--
 			println("\nNot present in the word,", attemps, "attempts remaining\n")
+			fmt.Println(string(jo[position : position+80]))
+			position += 79
 		}
-		//test j'espere que c bon  cette fois si j'en peu plu
-		indice = -1
 	}
+	println("t'es nul c'était :", mot)
+}
+func motrandom(mot string) string {
+	file, _ := os.Open(mot)
+	var mots []string
+	fileScanner := bufio.NewScanner(file)
+	for fileScanner.Scan() {
+		mots = append(mots, fileScanner.Text())
+	}
+	return mots[rand.Intn(len(mot))]
 }
