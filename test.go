@@ -27,7 +27,7 @@ func pendu(nbr, position int) int {
 func verification(word, choice string) []int {
 	var listeIndication []int
 	for i := 0; i < len(word); i++ {
-		if choice[0] == word[0] {
+		if choice[0] == word[i] {
 
 		}
 	}
