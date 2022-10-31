@@ -61,9 +61,8 @@ func motrandom(mot string) string {
 	var mots []string
 	fileScanner := bufio.NewScanner(file)
 
-	// read line by line
 	for fileScanner.Scan() {
 		mots = append(mots, fileScanner.Text())
 	}
-	return mots[5]
+	return mots[rand.Intn(len(mot))]
 }
