@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
 	"math/rand"
@@ -8,34 +9,13 @@ import (
 	"time"
 )
 
-func motaletaoire(file string) string {
-	rand.Seed(time.Now().UnixNano())
-	content, _ := os.ReadFile(file)
-	chaine := ""
-	var liste []string
-	for i := 0; i < len(content); i++ {
-		if content[i] == 13 || content[i] == 10 {
-			liste = append(liste, chaine)
-			chaine = ""
-		} else {
-			chaine += string(content[i])
-		}
-	}
-	m := liste[rand.Intn(len(liste))]
-	println(len(m))
-	for i := 0; i < len(m); i++ {
-		fmt.Println(m[i])
-	}
-	return m
-}
-
 func main() {
+	rand.Seed(time.Now().UnixNano())
 	jo, _ := ioutil.ReadFile("hangman.txt")
 	position := 0
 	var choix string
-	mot := motaletaoire(os.Args[1])
+	mot := motrandom(os.Args[1])
 	nbrlettre := len(mot)/2 - 1
-	println(nbrlettre)
 	var mot_cache []string
 	attemps := 10
 	println(mot)
@@ -74,4 +54,16 @@ func main() {
 		}
 	}
 	println("t'es nul c'était :", mot)
+}
+
+func motrandom(mot string) string {
+	file, _ := os.Open(mot)
+	var mots []string
+	fileScanner := bufio.NewScanner(file)
+
+	// read line by line
+	for fileScanner.Scan() {
+		mots = append(mots, fileScanner.Text())
+	}
+	return mots[5]
 }
