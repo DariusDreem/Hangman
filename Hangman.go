@@ -26,24 +26,10 @@ func motaletaoire(file string) string {
 }
 
 func main() {
-	fmt.Println(motaletaoire(os.Args[1]))
 	jo, _ := ioutil.ReadFile("hangman.txt")
 	position := 0
-	rand.Seed(time.Now().UnixNano())
-	content, _ := ioutil.ReadFile(os.Args[1])
-	chaine := ""
-	var liste []string
-	for i := 0; i < len(content); i++ {
-		if content[i] == 10 {
-			liste = append(liste, chaine)
-			chaine = ""
-		} else {
-			chaine += string(content[i])
-		}
-	}
 	var choix string
-	nbr1 := rand.Intn(len(liste))
-	mot := liste[nbr1]
+	mot := motaletaoire(os.Args[1])
 	nbrlettre := len(mot)/2 - 1
 	println(nbrlettre)
 	var mot_cache []string
