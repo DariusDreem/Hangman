@@ -7,3 +7,7 @@ func Listtostring(list []string) string {
 	}
 	return chaine
 }
+
+func minuscule(choice string) string {
+
+}
