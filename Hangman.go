@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
 	"math/rand"
@@ -9,28 +10,17 @@ import (
 )
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
 	jo, _ := ioutil.ReadFile("hangman.txt")
 	position := 0
-	rand.Seed(time.Now().UnixNano())
-	content, _ := ioutil.ReadFile(os.Args[1])
-	chaine := ""
-	var liste []string
-	for i := 0; i < len(content); i++ {
-		if content[i] == 10 {
-			liste = append(liste, chaine)
-			chaine = ""
-		} else {
-			chaine += string(content[i])
-		}
-	}
 	var choix string
-	nbr1 := rand.Intn(len(liste))
-	mot := liste[nbr1]
+	mot := motrandom(os.Args[1])
 	nbrlettre := len(mot)/2 - 1
-	println(nbrlettre)
 	var mot_cache []string
 	attemps := 10
 	println(mot)
+	println(len(mot))
+
 	println("Good Luck, you have ", attemps, " attempts.")
 	for i := 0; i < len(mot); i++ {
 		mot_cache = append(mot_cache, "_")
@@ -59,9 +49,20 @@ func main() {
 		} else {
 			attemps--
 			println("\nNot present in the word,", attemps, "attempts remaining\n")
-			fmt.Println(string(jo[position : position+70]))
-			position += 71
+			fmt.Println(string(jo[position : position+80]))
+			position += 79
 		}
 	}
 	println("t'es nul c'était :", mot)
+}
+
+func motrandom(mot string) string {
+	file, _ := os.Open(mot)
+	var mots []string
+	fileScanner := bufio.NewScanner(file)
+
+	for fileScanner.Scan() {
+		mots = append(mots, fileScanner.Text())
+	}
+	return mots[rand.Intn(len(mot))]
 }
