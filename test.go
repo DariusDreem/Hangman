@@ -1,6 +1,9 @@
 package main
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
 func verifie(liste []int, nbr int) bool {
 	for i := 0; i < len(liste); i++ {
@@ -17,5 +20,6 @@ func pendu(nbr, position int) int {
 	if position >= 710 {
 		position = 709
 	}
+	fmt.Print(string(jose[position-71 : position]))
 	return position
 }
