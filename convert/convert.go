@@ -11,6 +11,6 @@ func Listtostring(list []string) string {
 func minuscule(choice string) string {
 	choice3 := ""
 	for h := 0; h < len(choice); h++ {
-		return choice3
 	}
+	return choice3
 }
