@@ -20,6 +20,6 @@ func pendu(nbr, position int) int {
 	if position >= 710 {
 		position = 709
 	}
-	fmt.Print(string(jose[position-71 : position]))
+	fmt.Print(string(jose[position-70 : position]))
 	return position
 }
