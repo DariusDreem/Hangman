@@ -8,7 +8,25 @@ import (
 	"time"
 )
 
+func motaletaoire(file string) string {
+	rand.Seed(time.Now().UnixNano())
+	content, _ := ioutil.ReadFile(file)
+	chaine := ""
+	var liste []string
+	for i := 0; i < len(content); i++ {
+		if content[i] == 10 {
+			liste = append(liste, chaine)
+			chaine = ""
+		} else {
+			chaine += string(content[i])
+		}
+	}
+	nbr1 := rand.Intn(len(liste))
+	return liste[nbr1]
+}
+
 func main() {
+	fmt.Println(motaletaoire(os.Args[1]))
 	jo, _ := ioutil.ReadFile("hangman.txt")
 	position := 0
 	rand.Seed(time.Now().UnixNano())
