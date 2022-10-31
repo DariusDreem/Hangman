@@ -25,5 +25,6 @@ func pendu(nbr, position int) int {
 }
 
 func verification(word, choice string) []int {
-	return choice
+	var listeIndication []int
+	return listeIndication
 }
