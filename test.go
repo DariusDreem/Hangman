@@ -11,6 +11,6 @@ func verifie(liste []int, nbr int) bool {
 	return true
 }
 
-func pendu(nombre, position int) int {
+func pendu(nbr, position int) int {
 	jose, _ := os.ReadFile("hangman.txt")
 }
