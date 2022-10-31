@@ -10,19 +10,23 @@ import (
 
 func motaletaoire(file string) string {
 	rand.Seed(time.Now().UnixNano())
-	content, _ := ioutil.ReadFile(file)
+	content, _ := os.ReadFile(file)
 	chaine := ""
 	var liste []string
 	for i := 0; i < len(content); i++ {
-		if content[i] == 10 {
+		if content[i] == 13 || content[i] == 10 {
 			liste = append(liste, chaine)
 			chaine = ""
 		} else {
 			chaine += string(content[i])
 		}
 	}
-	nbr1 := rand.Intn(len(liste))
-	return liste[nbr1]
+	m := liste[rand.Intn(len(liste))]
+	println(len(m))
+	for i := 0; i < len(m); i++ {
+		fmt.Println(m[i])
+	}
+	return m
 }
 
 func main() {
@@ -35,6 +39,8 @@ func main() {
 	var mot_cache []string
 	attemps := 10
 	println(mot)
+	println(len(mot))
+
 	println("Good Luck, you have ", attemps, " attempts.")
 	for i := 0; i < len(mot); i++ {
 		mot_cache = append(mot_cache, "_")
@@ -63,8 +69,8 @@ func main() {
 		} else {
 			attemps--
 			println("\nNot present in the word,", attemps, "attempts remaining\n")
-			fmt.Println(string(jo[position : position+70]))
-			position += 71
+			fmt.Println(string(jo[position : position+80]))
+			position += 79
 		}
 	}
 	println("t'es nul c'était :", mot)
