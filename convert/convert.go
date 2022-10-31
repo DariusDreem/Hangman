@@ -14,7 +14,7 @@ func minuscule(choix string) string {
 		if choix[h] >= 65 && choix[h] <= 90 {
 			choix3 += string(choix[h] + 32)
 		} else {
-
+			choice3 += string(choice[h])
 		}
 	}
 	return choix3
