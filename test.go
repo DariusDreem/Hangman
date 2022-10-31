@@ -13,4 +13,5 @@ func verifie(liste []int, nbr int) bool {
 
 func pendu(nbr, position int) int {
 	jose, _ := os.ReadFile("hangman.txt")
+	position += 81 * nbr
 }
