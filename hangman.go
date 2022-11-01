@@ -14,6 +14,7 @@ func main() {
 	jo, _ := ioutil.ReadFile("hangman.txt")
 	position := 0
 	var choix string
+	var letter rune
 	mot := motrandom(os.Args[1])
 	nbrlettre := len(mot)/2 - 1
 	var mot_cache []string
@@ -39,6 +40,9 @@ func main() {
 			if choix[0] == mot[i] {
 				listeind = append(listeind, i)
 			}
+		}
+		if len(choix) == 1 {
+			letter = rune(choix[0])
 		}
 		if len(listeind) > 0 {
 			for k := 0; k < len(listeind); k++ {
