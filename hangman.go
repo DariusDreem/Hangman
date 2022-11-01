@@ -17,20 +17,11 @@ func main() {
 	var letter rune
 	LetterFind := ""
 	mot := motrandom(os.Args[1])
-	nbrlettre := len(mot)/2 - 1
-	var mot_cache []string
 	attemps := 10
 	println(mot)
 	println(len(mot))
 	println("Good Luck, you have ", attemps, " attempts.")
-	for i := 0; i < len(mot); i++ {
-		mot_cache = append(mot_cache, "_")
-	}
-	for x := 0; x < nbrlettre; x++ {
-		ind := rand.Intn(len(mot))
-		mot_cache[ind] = string(mot[ind])
-	}
-
+	mot_cache := creadumot(mot)
 	for attemps > 0 {
 		for i := 0; i < len(mot); i++ {
 			print(mot_cache[i] + " ")
@@ -81,4 +72,17 @@ func verif(word, choice string) []int {
 		}
 	}
 	return listeInd
+}
+
+func creadumot(mot string) []string {
+	var mot_cache []string
+	nbrlettre := len(mot)/2 - 1
+	for i := 0; i < len(mot); i++ {
+		mot_cache = append(mot_cache, "_")
+	}
+	for x := 0; x < nbrlettre; x++ {
+		ind := rand.Intn(len(mot))
+		mot_cache[ind] = string(mot[ind])
+	}
+	return mot_cache
 }
