@@ -15,6 +15,7 @@ func main() {
 	position := 0
 	var choix string
 	var letter rune
+	LetterFind := ""
 	mot := motrandom(os.Args[1])
 	nbrlettre := len(mot)/2 - 1
 	var mot_cache []string
@@ -29,6 +30,7 @@ func main() {
 		ind := rand.Intn(len(mot))
 		mot_cache[ind] = string(mot[ind])
 	}
+
 	for attemps > 0 {
 		for i := 0; i < len(mot); i++ {
 			print(mot_cache[i] + " ")
@@ -43,6 +45,9 @@ func main() {
 		}
 		if len(choix) == 1 {
 			letter = rune(choix[0])
+			if len(verif(LetterFind, choix)) > 0 {
+				attemps--
+			}
 		}
 		if len(listeind) > 0 {
 			for k := 0; k < len(listeind); k++ {
@@ -57,6 +62,7 @@ func main() {
 	}
 	println("t'es nul c'était :", mot)
 }
+
 func motrandom(mot string) string {
 	file, _ := os.Open(mot)
 	var mots []string
@@ -65,4 +71,14 @@ func motrandom(mot string) string {
 		mots = append(mots, fileScanner.Text())
 	}
 	return mots[rand.Intn(len(mot))]
+}
+
+func verif(word, choice string) []int {
+	var listeInd []int
+	for i := 0; i < len(word); i++ {
+		if choice[0] == word[i] {
+			listeInd = append(listeInd, i)
+		}
+	}
+	return listeInd
 }
