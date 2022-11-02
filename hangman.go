@@ -53,7 +53,7 @@ func main() {
 				if !echec {
 					attemps--
 					position = pendu(1, position)
-					println("\nNot present in the word,", attempsttemps, "attempts remaining\n")
+					println("\nNot present in the word,", attemps, "attempts remaining\n")
 					echec = false
 		}else {
 					if choix == worldBase {
@@ -64,6 +64,10 @@ func main() {
 						save, _ := os.Create("save.txt")
 						save.Write(b)
 						return
+					} else {
+						attemps -= 2
+						position = pendu(2, position)
+						println("\nlie! is not the real word,", attemps, "attempts remaining\n")
 					}
 		}
 		if len(listeind) > 0 {
