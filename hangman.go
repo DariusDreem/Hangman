@@ -39,7 +39,7 @@ func main() {
 			letter = rune(choice[0])
 			if len(verif(LetterFind, choice)) > 0 {
 				attemps--
-				position = pendu(1, position)
+				position = gallows(1, position)
 				println("\nalready present in the word,", attemps, "attempts remaining\n")
 				echec = true
 			}
@@ -52,7 +52,7 @@ func main() {
 			} else {
 				if !echec {
 					attemps--
-					position = pendu(1, position)
+					position = gallows(1, position)
 					println("\nNot present in the word,", attemps, "attempts remaining\n")
 					echec = false
 				} else {
@@ -61,7 +61,7 @@ func main() {
 						return
 					} else {
 						attemps -= 2
-						position = pendu(2, position)
+						position = gallows(2, position)
 						println("\nlie! is not the real word,", attemps, "attempts remaining\n")
 					}
 				}
@@ -112,4 +112,14 @@ func creadumot(mot string) []string {
 		mot_cache[ind] = string(mot[ind])
 	}
 	return mot_cache
+}
+
+func gallows(nbr, position int) int {
+	jose, _ := os.ReadFile("hangman.txt")
+	position += 71 * nbr
+	if position >= 710 {
+		position = 709
+	}
+	fmt.Print(string(jose[position-70 : position]))
+	return position
 }
