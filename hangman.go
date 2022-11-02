@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"math/rand"
@@ -46,6 +45,7 @@ func main() {
 			}
 			LetterFind += choice
 			if len(verif(worldbase, choice)) >= 1 {
+				index := verif(worldbase, choice)
 				for i := 0; i < len(index); i++ {
 					showWord[index[i]] = string(letter - 32)
 				}
@@ -112,5 +112,4 @@ func creadumot(mot string) []string {
 		mot_cache[ind] = string(mot[ind])
 	}
 	return mot_cache
-}
 }
