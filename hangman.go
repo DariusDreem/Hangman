@@ -45,6 +45,10 @@ func main() {
 			}
 			LetterFind += choix
 			if len(verif(mot, choix)) >= 1 {
+				for i := 0; i < len(index); i++ {
+					showWord[index[i]] = string(letter - 32)
+				}
+			}
 		}
 		if len(listeind) > 0 {
 			for k := 0; k < len(listeind); k++ {
