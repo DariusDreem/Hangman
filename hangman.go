@@ -51,6 +51,9 @@ func main() {
 			} else {
 				if !echec {
 					attemps--
+					position = pendu(1, position)
+					println("\nNot present in the word,", attempsttemps, "attempts remaining\n")
+					echec = false
 		}
 		if len(listeind) > 0 {
 			for k := 0; k < len(listeind); k++ {
