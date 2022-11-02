@@ -44,7 +44,7 @@ func main() {
 				echec = true
 			}
 			LetterFind += choix
-			if len(verif(mot, choix)) >= 1 {
+			if len(verif(worldbase, choix)) >= 1 {
 				for i := 0; i < len(index); i++ {
 					showWord[index[i]] = string(letter - 32)
 				}
@@ -54,6 +54,11 @@ func main() {
 					position = pendu(1, position)
 					println("\nNot present in the word,", attempsttemps, "attempts remaining\n")
 					echec = false
+		}else {
+					if choix == worldBase {
+						println("\nCongrats !")
+						return
+					}
 		}
 		if len(listeind) > 0 {
 			for k := 0; k < len(listeind); k++ {
