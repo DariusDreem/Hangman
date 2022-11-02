@@ -22,6 +22,7 @@ func main() {
 	println(len(mot))
 	println("Good Luck, you have ", attemps, " attempts.")
 	mot_cache := creadumot(mot)
+	echec := false
 	for attemps > 0 {
 		for i := 0; i < len(mot); i++ {
 			print(mot_cache[i] + " ")
@@ -38,6 +39,9 @@ func main() {
 			letter = rune(choix[0])
 			if len(verif(LetterFind, choix)) > 0 {
 				attemps--
+				position = pendu(1, position)
+				println("\nalready present in the word,", attemps, "attempts remaining\n")
+				echec = true
 			}
 		}
 		if len(listeind) > 0 {
