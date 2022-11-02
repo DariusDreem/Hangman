@@ -48,7 +48,9 @@ func main() {
 				for i := 0; i < len(index); i++ {
 					showWord[index[i]] = string(letter - 32)
 				}
-			}
+			} else {
+				if !echec {
+					attemps--
 		}
 		if len(listeind) > 0 {
 			for k := 0; k < len(listeind); k++ {
