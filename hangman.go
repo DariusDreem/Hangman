@@ -43,6 +43,8 @@ func main() {
 				println("\nalready present in the word,", attemps, "attempts remaining\n")
 				echec = true
 			}
+			LetterFind += choix
+			if len(verif(mot, choix)) >= 1 {
 		}
 		if len(listeind) > 0 {
 			for k := 0; k < len(listeind); k++ {
