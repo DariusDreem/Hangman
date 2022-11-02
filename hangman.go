@@ -14,38 +14,38 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 	jo, _ := ioutil.ReadFile("hangman.txt")
 	position := 0
-	var choix string
+	var choice string
 	var letter rune
 	LetterFind := ""
-	mot := motrandom(os.Args[1])
+	worldbase := motrandom(os.Args[1])
 	attemps := 10
-	println(mot)
-	println(len(mot))
+	println(worldbase)
+	println(len(worldbase))
 	println("Good Luck, you have ", attemps, " attempts.")
-	mot_cache := creadumot(mot)
+	showWord := creadumot(worldbase)
 	echec := false
 	for attemps > 0 {
-		for i := 0; i < len(mot); i++ {
-			print(mot_cache[i] + " ")
+		for i := 0; i < len(worldbase); i++ {
+			print(showWord[i] + " ")
 		}
 		print("\n" + "\n" + "Choose: ")
-		fmt.Scanln(&choix)
+		fmt.Scanln(&choice)
 		var listeind []int
-		for i := 0; i < len(mot); i++ {
-			if choix[0] == mot[i] {
+		for i := 0; i < len(worldbase); i++ {
+			if choice[0] == worldbase[i] {
 				listeind = append(listeind, i)
 			}
 		}
-		if len(choix) == 1 {
-			letter = rune(choix[0])
-			if len(verif(LetterFind, choix)) > 0 {
+		if len(choice) == 1 {
+			letter = rune(choice[0])
+			if len(verif(LetterFind, choice)) > 0 {
 				attemps--
 				position = pendu(1, position)
 				println("\nalready present in the word,", attemps, "attempts remaining\n")
 				echec = true
 			}
-			LetterFind += choix
-			if len(verif(worldbase, choix)) >= 1 {
+			LetterFind += choice
+			if len(verif(worldbase, choice)) >= 1 {
 				for i := 0; i < len(index); i++ {
 					showWord[index[i]] = string(letter - 32)
 				}
@@ -56,13 +56,8 @@ func main() {
 					println("\nNot present in the word,", attemps, "attempts remaining\n")
 					echec = false
 				} else {
-					if choix == worldBase {
+					if choice == worldbase {
 						println("\nCongrats !")
-						return
-					} else if choix == "stop" {
-						b, _ := json.Marshal(varia)
-						save, _ := os.Create("save.txt")
-						save.Write(b)
 						return
 					} else {
 						attemps -= 2
@@ -72,7 +67,7 @@ func main() {
 				}
 				if len(listeind) > 0 {
 					for k := 0; k < len(listeind); k++ {
-						mot_cache[listeind[k]] = choix
+						showWord[listeind[k]] = choice
 					}
 				} else {
 					attemps--
@@ -81,7 +76,7 @@ func main() {
 					position += 79
 				}
 			}
-			println("t'es nul c'était :", mot)
+			println("t'es nul c'était :", worldbase)
 		}
 	}
 }
