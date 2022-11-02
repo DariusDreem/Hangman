@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"math/rand"
@@ -57,6 +58,11 @@ func main() {
 		}else {
 					if choix == worldBase {
 						println("\nCongrats !")
+						return
+					} else if choix == "stop" {
+						b, _ := json.Marshal(varia)
+						save, _ := os.Create("save.txt")
+						save.Write(b)
 						return
 					}
 		}
