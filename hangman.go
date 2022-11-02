@@ -55,7 +55,7 @@ func main() {
 					position = pendu(1, position)
 					println("\nNot present in the word,", attemps, "attempts remaining\n")
 					echec = false
-		}else {
+				} else {
 					if choix == worldBase {
 						println("\nCongrats !")
 						return
@@ -69,19 +69,21 @@ func main() {
 						position = pendu(2, position)
 						println("\nlie! is not the real word,", attemps, "attempts remaining\n")
 					}
-		}
-		if len(listeind) > 0 {
-			for k := 0; k < len(listeind); k++ {
-				mot_cache[listeind[k]] = choix
+				}
+				if len(listeind) > 0 {
+					for k := 0; k < len(listeind); k++ {
+						mot_cache[listeind[k]] = choix
+					}
+				} else {
+					attemps--
+					println("\nNot present in the word,", attemps, "attempts remaining\n")
+					fmt.Println(string(jo[position : position+80]))
+					position += 79
+				}
 			}
-		} else {
-			attemps--
-			println("\nNot present in the word,", attemps, "attempts remaining\n")
-			fmt.Println(string(jo[position : position+80]))
-			position += 79
+			println("t'es nul c'était :", mot)
 		}
 	}
-	println("t'es nul c'était :", mot)
 }
 
 func motrandom(mot string) string {
@@ -115,4 +117,5 @@ func creadumot(mot string) []string {
 		mot_cache[ind] = string(mot[ind])
 	}
 	return mot_cache
+}
 }
