@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	ascii_art "ex/ascii-art"
 	"fmt"
 	"io/ioutil"
 	"math/rand"
@@ -10,6 +11,7 @@ import (
 )
 
 func main() {
+	ascii_art.Aff()
 	rand.Seed(time.Now().UnixNano())
 	jo, _ := ioutil.ReadFile("hangman.txt")
 	position := 0
