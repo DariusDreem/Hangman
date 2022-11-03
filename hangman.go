@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"ex/convert"
 	"fmt"
 	"math/rand"
 	"os"
@@ -66,7 +65,7 @@ func main() {
 				println("\nlie! is not the real word,", attemps, "attempts remaining\n")
 			}
 		}
-		if len(verif(convert.Listtostring(showWord), "_")) == 0 {
+		if len(verif(Listtostring(showWord), "_")) == 0 {
 			for i := 0; i < len(worldbase); i++ {
 				print(showWord[i] + " ")
 			}
@@ -118,4 +117,24 @@ func gallows(nbr, position int) int {
 	}
 	fmt.Print(string(jose[position-71 : position]))
 	return position
+}
+
+func Listtostring(list []string) string {
+	char := ""
+	for i := 0; i < len(list); i++ {
+		char += list[i]
+	}
+	return char
+}
+
+func Lower(choice string) string {
+	choice3 := ""
+	for h := 0; h < len(choice); h++ {
+		if choice[h] >= 65 && choice[h] <= 90 {
+			choice3 += string(choice[h] + 32)
+		} else {
+			choice3 += string(choice[h])
+		}
+	}
+	return choice3
 }
