@@ -15,23 +15,23 @@ func main() {
 	var choice string
 	var letter rune
 	LetterFind := ""
-	worldbase := motrandom(os.Args[1])
+	worldbase := random_word(os.Args[1])
 	attemps := 10
 	println(worldbase)
 	println(len(worldbase))
 	println("Good Luck, you have ", attemps, " attempts.")
-	showWord := creadumot(worldbase)
-	echec := false
+	showWord := word_choice(worldbase)
+	fail := false
 	for attemps > 0 {
 		for i := 0; i < len(worldbase); i++ {
 			print(showWord[i] + " ")
 		}
 		print("\n" + "\n" + "Choose: ")
 		fmt.Scanln(&choice)
-		var listeind []int
+		var listInd []int
 		for i := 0; i < len(worldbase); i++ {
 			if choice[0] == worldbase[i] {
-				listeind = append(listeind, i)
+				listInd = append(listInd, i)
 			}
 		}
 		if len(choice) == 1 {
@@ -40,7 +40,7 @@ func main() {
 				attemps--
 				position = gallows(1, position)
 				println("\nalready present in the word,", attemps, "attempts remaining\n")
-				echec = true
+				fail = true
 			}
 			LetterFind += choice
 			if len(verif(worldbase, choice)) >= 1 {
@@ -49,11 +49,11 @@ func main() {
 					showWord[index[i]] = string(letter - 32)
 				}
 			} else {
-				if !echec {
+				if !fail {
 					attemps--
 					position = gallows(1, position)
 					println("\nNot present in the word,", attemps, "attempts remaining\n")
-					echec = false
+					fail = false
 				}
 			}
 		} else {
@@ -74,40 +74,40 @@ func main() {
 			return
 		}
 	}
-	println("t'es nul c'était :", worldbase)
+	println("You are bad, it's was :", worldbase)
 }
 
-func motrandom(mot string) string {
-	file, _ := os.Open(mot)
-	var mots []string
+func random_word(word string) string {
+	file, _ := os.Open(word)
+	var word_list []string
 	fileScanner := bufio.NewScanner(file)
 	for fileScanner.Scan() {
-		mots = append(mots, fileScanner.Text())
+		word_list = append(word_list, fileScanner.Text())
 	}
-	return mots[rand.Intn(len(mot))]
+	return word_list[rand.Intn(len(word))]
 }
 
 func verif(word, choice string) []int {
-	var listeInd []int
+	var ListInd []int
 	for i := 0; i < len(word); i++ {
 		if choice[0] == word[i] {
-			listeInd = append(listeInd, i)
+			ListInd = append(ListInd, i)
 		}
 	}
-	return listeInd
+	return ListInd
 }
 
-func creadumot(mot string) []string {
-	var mot_cache []string
-	nbrlettre := len(mot)/2 - 1
+func word_choice(mot string) []string {
+	var show_word []string
+	nbrletter := len(mot)/2 - 1
 	for i := 0; i < len(mot); i++ {
-		mot_cache = append(mot_cache, "_")
+		show_word = append(show_word, "_")
 	}
-	for x := 0; x < nbrlettre; x++ {
+	for x := 0; x < nbrletter; x++ {
 		ind := rand.Intn(len(mot))
-		mot_cache[ind] = string(mot[ind])
+		show_word[ind] = string(mot[ind])
 	}
-	return mot_cache
+	return show_word
 }
 
 func gallows(nbr, position int) int {
