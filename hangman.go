@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"io/ioutil"
 	"math/rand"
 	"os"
 	"time"
@@ -11,7 +10,6 @@ import (
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	jo, _ := ioutil.ReadFile("hangman.txt")
 	position := 0
 	var choice string
 	var letter rune
@@ -55,30 +53,20 @@ func main() {
 					position = gallows(1, position)
 					println("\nNot present in the word,", attemps, "attempts remaining\n")
 					echec = false
-				} else {
-					if choice == worldbase {
-						println("\nCongrats !")
-						return
-					} else {
-						attemps -= 2
-						position = gallows(2, position)
-						println("\nlie! is not the real word,", attemps, "attempts remaining\n")
-					}
-				}
-				if len(listeind) > 0 {
-					for k := 0; k < len(listeind); k++ {
-						showWord[listeind[k]] = choice
-					}
-				} else {
-					attemps--
-					println("\nNot present in the word,", attemps, "attempts remaining\n")
-					fmt.Println(string(jo[position : position+80]))
-					position += 79
 				}
 			}
-			println("t'es nul c'était :", worldbase)
+		} else {
+			if choice == worldbase {
+				println("\nCongrats !")
+				return
+			} else {
+				attemps -= 2
+				position = gallows(2, position)
+				println("\nlie! is not the real word,", attemps, "attempts remaining\n")
+			}
 		}
 	}
+	println("t'es nul c'était :", worldbase)
 }
 
 func motrandom(mot string) string {
@@ -116,10 +104,10 @@ func creadumot(mot string) []string {
 
 func gallows(nbr, position int) int {
 	jose, _ := os.ReadFile("hangman.txt")
-	position += 79 * nbr
+	position += 71 * nbr
 	if position >= 710 {
 		position = 709
 	}
-	fmt.Print(string(jose[position-79 : position]))
+	fmt.Print(string(jose[position-71 : position]))
 	return position
 }
