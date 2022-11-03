@@ -1,6 +1,6 @@
 package main
 
-func verifie(liste []int, nbr int) bool {
+func verifint(liste []int, nbr int) bool {
 	for i := 0; i < len(liste); i++ {
 		if liste[i] == nbr {
 			return false
@@ -9,7 +9,7 @@ func verifie(liste []int, nbr int) bool {
 	return true
 }
 
-func verification(word, choice string) []int {
+func verif2(word, choice string) []int {
 	var listeInd []int
 	for i := 0; i < len(word); i++ {
 		if choice[0] == word[i] {

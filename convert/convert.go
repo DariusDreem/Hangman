@@ -8,7 +8,7 @@ func Listtostring(list []string) string {
 	return chaine
 }
 
-func minuscule(choice string) string {
+func Lower(choice string) string {
 	choice3 := ""
 	for h := 0; h < len(choice); h++ {
 		if choice[h] >= 65 && choice[h] <= 90 {
