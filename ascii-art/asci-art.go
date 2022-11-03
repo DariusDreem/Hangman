@@ -2,11 +2,10 @@ package ascii_art
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 )
 
-func Aff() {
+func aff() {
 
 	var liste [][]string
 	var lettre []string
@@ -26,6 +25,19 @@ func Aff() {
 		}
 		nbr++
 	}
-	fmt.Println(liste)
+
+	//print message
+	message := "va je ne te hais point"
+	for i := 0; i < 9; i++ {
+
+		for z := 0; z < len(message); z++ {
+			if message[z]-32 == 0 {
+				print("      ")
+			} else {
+				print(liste[message[z]-32][i])
+			}
+		}
+		print("\n")
+	}
 	file.Close()
 }
