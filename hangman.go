@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"bufio"
 	"fmt"
 	"math/rand"
@@ -8,72 +9,95 @@ import (
 	"time"
 )
 
+type HangManData struct {
+	WordBase  string
+	ShowWord   []string
+	LetterFind string
+	Attemps    int
+	Position   int
+	Asci       string
+}
+
 func main() {
+	var varia HangManData
+	if len(verif(os.Args[1], "--startWith")) > 0 {
+		content, _ := os.ReadFile("save.txt")
+		err1 := json.Unmarshal(content, &varia)
+		if err1 != nil {
+			print(err1)
+			return
+		}
+	} else {
+		word := random_word(os.Args[1])
+		varia = HangManData{word, word_choice(word), "", 10, -1, ""}
+	}
 	rand.Seed(time.Now().UnixNano())
-	position := 0
-	var choice string
 	var letter rune
-	LetterFind := ""
-	worldbase := random_word(os.Args[1])
-	attemps := 10
-	println(worldbase)
-	println(len(worldbase))
-	println("Good Luck, you have ", attemps, " attempts.")
-	showWord := word_choice(worldbase)
+	var choice string
 	fail := false
-	for attemps > 0 {
-		for i := 0; i < len(worldbase); i++ {
-			print(showWord[i] + " ")
+	
+	println(varia.WordBase)
+	println(len(varia.WordBase))
+	println("Good Luck, you have ", varia.Attemps, " attempts.")
+	ShowWord := word_choice(varia.WordBase)
+	for varia.Attemps > 0 {
+		for i := 0; i < len(varia.WordBase); i++ {
+			print(ShowWord[i] + " ")
 		}
 		print("\n" + "\n" + "Choose: ")
 		fmt.Scanln(&choice)
 		var listInd []int
-		for i := 0; i < len(worldbase); i++ {
-			if choice[0] == worldbase[i] {
+		for i := 0; i < len(varia.WordBase); i++ {
+			if choice[0] == varia.WordBase[i] {
 				listInd = append(listInd, i)
 			}
 		}
 		if len(choice) == 1 {
 			letter = rune(choice[0])
-			if len(verif(LetterFind, choice)) > 0 {
-				attemps--
-				position = gallows(1, position)
-				println("\nalready present in the word,", attemps, "attempts remaining\n")
+			if len(verif(varia.LetterFind, choice)) > 0 {
+				varia.Attemps--
+				varia.Position = gallows(1, varia.Position)
+				println("\nalready present in the word,", varia.Attemps, "attempts remaining\n")
 				fail = true
 			}
-			LetterFind += choice
-			if len(verif(worldbase, choice)) >= 1 {
-				index := verif(worldbase, choice)
+			varia.LetterFind += choice
+			if len(verif(varia.WordBase, choice)) >= 1 {
+				index := verif(varia.WordBase, choice)
 				for i := 0; i < len(index); i++ {
-					showWord[index[i]] = string(letter - 32)
+					ShowWord[index[i]] = string(letter - 32)
 				}
 			} else {
 				if !fail {
-					attemps--
-					position = gallows(1, position)
-					println("\nNot present in the word,", attemps, "attempts remaining\n")
+					varia.Attemps--
+					varia.Position = gallows(1, varia.Position)
+					println("\nNot present in the word,", varia.Attemps, "attempts remaining\n")
 					fail = false
 				}
 			}
 		} else {
-			if choice == worldbase {
+			if choice == varia.WordBase {
 				println("\nCongrats !")
 				return
+			}  else if choice == "stop" {
+				b, _ := json.Marshal(varia)
+				save, _ := os.Create("save.txt")
+				save.Write(b)
+				return
 			} else {
-				attemps -= 2
-				position = gallows(2, position)
-				println("\nlie! is not the real word,", attemps, "attempts remaining\n")
+				varia.Attemps -= 2
+				varia.Position = gallows(2, varia.Position)
+				println("\nlie! is not the real word,", varia.Attemps, "attempts remaining\n")
 			}
 		}
-		if len(verif(Listtostring(showWord), "_")) == 0 {
-			for i := 0; i < len(worldbase); i++ {
-				print(showWord[i] + " ")
+		if len(verif(Listtostring(ShowWord), "_")) == 0 {
+			for i := 0; i < len(varia.WordBase); i++ {
+				print(ShowWord[i] + " ")
 			}
 			println("\n\nCongrats !")
 			return
 		}
 	}
-	println("You are bad, it's was :", worldbase)
+	println("You are bad, it's was :", varia.WordBase)
 }
 
 func random_word(word string) string {
