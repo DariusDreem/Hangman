@@ -116,10 +116,10 @@ func creadumot(mot string) []string {
 
 func gallows(nbr, position int) int {
 	jose, _ := os.ReadFile("hangman.txt")
-	position += 71 * nbr
+	position += 79 * nbr
 	if position >= 710 {
 		position = 709
 	}
-	fmt.Print(string(jose[position-70 : position]))
+	fmt.Print(string(jose[position-79 : position]))
 	return position
 }
