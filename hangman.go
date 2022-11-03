@@ -1,5 +1,4 @@
 package main
-
 import (
 	"bufio"
 	"ex/convert"
@@ -8,7 +7,6 @@ import (
 	"os"
 	"time"
 )
-
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	position := 0
@@ -76,7 +74,6 @@ func main() {
 	}
 	println("t'es nul c'était :", worldbase)
 }
-
 func motrandom(mot string) string {
 	file, _ := os.Open(mot)
 	var mots []string
@@ -86,7 +83,6 @@ func motrandom(mot string) string {
 	}
 	return mots[rand.Intn(len(mot))]
 }
-
 func verif(word, choice string) []int {
 	var listeInd []int
 	for i := 0; i < len(word); i++ {
@@ -96,7 +92,6 @@ func verif(word, choice string) []int {
 	}
 	return listeInd
 }
-
 func creadumot(mot string) []string {
 	var mot_cache []string
 	nbrlettre := len(mot)/2 - 1
@@ -109,7 +104,6 @@ func creadumot(mot string) []string {
 	}
 	return mot_cache
 }
-
 func gallows(nbr, position int) int {
 	jose, _ := os.ReadFile("hangman.txt")
 	position += 71 * nbr
