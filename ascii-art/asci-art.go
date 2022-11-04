@@ -5,13 +5,13 @@ import (
 	"os"
 )
 
-func aff() {
+func Aff(word, name string) {
 
 	var liste [][]string
 	var lettre []string
 	nbr := 1
 
-	file, _ := os.Open("standard.txt")
+	file, _ := os.Open(name)
 
 	fileScanner := bufio.NewScanner(file)
 
@@ -27,7 +27,7 @@ func aff() {
 	}
 
 	//print message
-	message := "va je ne te hais point"
+	message := word
 	for i := 0; i < 9; i++ {
 
 		for z := 0; z < len(message); z++ {
