@@ -24,7 +24,7 @@ func main() {
 	//------------------------ launch of program --------------------------------//
 	var varia HangManData
 	if len(verif(os.Args[1], "--startWith")) > 0 {
-		content, _ := os.ReadFile("save.txt")
+		content, _ := os.ReadFile(os.Args[2])
 		err1 := json.Unmarshal(content, &varia)
 		if err1 != nil {
 			print(err1)
