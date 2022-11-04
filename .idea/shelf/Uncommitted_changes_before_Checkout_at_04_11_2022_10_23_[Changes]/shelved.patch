@@ -1,0 +1,111 @@
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_31_10_2022_14_10__Changes_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_10_2022_14_10__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_10_2022_14_10__Changes_.xml
+new file mode 100644
+--- /dev/null	(date 1667553663875)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_10_2022_14_10__Changes_.xml	(date 1667553663875)
+@@ -0,0 +1,4 @@
++<changelist name="Uncommitted_changes_before_Checkout_at_31_10_2022_14_10_[Changes]" date="1667221844833" recycled="false" toDelete="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_10_2022_14_10_[Changes]/shelved.patch" />
++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 31/10/2022 14:10 [Changes]" />
++</changelist>
+\ No newline at end of file
+Index: ascii-art/asci-art.go
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ascii-art/asci-art.go b/ascii-art/asci-art.go
+new file mode 100644
+--- /dev/null	(date 1667553663877)
++++ b/ascii-art/asci-art.go	(date 1667553663877)
+@@ -0,0 +1,31 @@
++package ascii_art
++
++import (
++	"bufio"
++	"fmt"
++	"os"
++)
++
++func Aff() {
++
++	var liste [][]string
++	var lettre []string
++	nbr := 1
++
++	file, _ := os.Open("standard.txt")
++
++	fileScanner := bufio.NewScanner(file)
++
++	// read line by line
++	for fileScanner.Scan() {
++		lettre = append(lettre, fileScanner.Text())
++		if nbr%10 == 0 {
++			liste = append(liste, lettre)
++			lettre = lettre[len(lettre):]
++			nbr = 1
++		}
++		nbr++
++	}
++	fmt.Println(liste)
++	file.Close()
++}
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_31_10_2022_14_10_[Changes]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_10_2022_14_10_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_10_2022_14_10_[Changes]/shelved.patch
+new file mode 100644
+--- /dev/null	(date 1667553663874)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_10_2022_14_10_[Changes]/shelved.patch	(date 1667553663874)
+@@ -0,0 +1,23 @@
++Index: .idea/workspace.xml
++===================================================================
++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
++--- a/.idea/workspace.xml	
+++++ b/.idea/workspace.xml	
++@@ -5,7 +5,7 @@
++   </component>
++   <component name="ChangeListManager">
++     <list default="true" id="e5f6a951-eedf-423c-8bea-4276d3da5e6e" name="Changes" comment="fix problem word random">
++-      <change beforePath="$PROJECT_DIR$/Hangman.go" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman.go" afterDir="false" />
+++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++     </list>
++     <option name="SHOW_DIALOG" value="false" />
++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
++@@ -23,7 +23,7 @@
++   <component name="Git.Settings">
++     <option name="RECENT_BRANCH_BY_REPOSITORY">
++       <map>
++-        <entry key="$PROJECT_DIR$" value="devleo" />
+++        <entry key="$PROJECT_DIR$" value="majlf" />
++       </map>
++     </option>
++     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectModuleManager\">\r\n    <modules>\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/hangman-classic.iml\" filepath=\"$PROJECT_DIR$/.idea/hangman-classic.iml\" />\r\n    </modules>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+--- a/.idea/modules.xml	(revision 10c1c440c3511e7e3015b121d851cfb36f96d138)
++++ b/.idea/modules.xml	(date 1667553663874)
+@@ -2,7 +2,7 @@
+ <project version="4">
+   <component name="ProjectModuleManager">
+     <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/hangman-classic.iml" filepath="$PROJECT_DIR$/.idea/hangman-classic.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/Hangman-classic.iml" filepath="$PROJECT_DIR$/.idea/Hangman-classic.iml" />
+     </modules>
+   </component>
+ </project>
+\ No newline at end of file
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_10_2022_14_10_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_10_2022_14_10_[Changes]1/shelved.patch
+new file mode 100644
